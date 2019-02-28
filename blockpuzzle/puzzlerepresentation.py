@@ -58,11 +58,12 @@ class Piece:
         self.antirotate90()
     return self
   def rot_list(self, turns):
-        if turns % 4 == 0:
+        turns = turns % 4
+        if turns == 0:
             return self.unit_list.copy()
         self.rotate(turns)
         ans = self.unit_list.copy()
-        self.rotate(4-turns)
+        self.rotate(-turns)
         return ans
 
 hole = Piece('black',[[0,0]])
